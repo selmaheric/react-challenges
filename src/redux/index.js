@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
 import authReducer from './auth/reducer';
-import contextReducer from "./context/reducer"
+import counterReducer from "./counter/reducer"
 
 export default combineReducers({
   auth: authReducer,
-  context: contextReducer
+  counter: counterReducer
 })
