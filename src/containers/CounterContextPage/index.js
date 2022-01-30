@@ -19,9 +19,7 @@ const countReducer = (state = INIT_STATE, action) => {
         counter: state.counter - 1
       }
     default:
-      return {
-        ...state
-      }
+      return state;
   }
 }
 
@@ -75,7 +73,7 @@ export default function CounterContextPage() {
     <myContext.Provider value={{ state, dispatch }}>
       <div className='container'>
         <div className='title'>Counter Context</div>
-        <div className='subTitle'>Selma heric</div>
+        <div className='subTitle'>This counter is created using context</div>
         <Counter />
         <IncrementButton />
         <DecrementButton />

@@ -48,7 +48,7 @@ export default function CounterReduxPage() {
   return (
     <div className='container'>
       <div className='title'>Counter Redux</div>
-      <div className='subTitle'>Selma Heric</div>
+      <div className='subTitle'>This counter is created using redux</div>
       <Counter />
       <IncrementButton />
       <DecrementButton />
