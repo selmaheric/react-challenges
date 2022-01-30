@@ -8,6 +8,7 @@ export function Sidebar({ children }) {
       <div className='sidebarContent'>
         <ul>
           <li><Link to='/counter'>Counter</Link></li>
+          <li><Link to='/context'>Context</Link></li>
         </ul>
       </div>
       <div className='sidebarChildren'>
