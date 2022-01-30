@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import './App.scss';
 
-import { AboutPage, HomePage, LoginPage, NotFoundPage } from './containers';
+import { AboutPage, CounterPage, HomePage, LoginPage, NotFoundPage } from './containers';
 import { Navbar, Sidebar } from './components';
 import { useEffect } from 'react';
 import { getUser } from './redux/auth/actions';
@@ -21,10 +21,7 @@ function PrivateRoute({ children }) {
 
 function Layout() {
   return (
-    <div style={{
-      border: '1px solid whitesmoke',
-      height: '100%'
-    }}>
+    <div className='layout'>
       <Navbar />
       <Sidebar>
         <Outlet />
@@ -55,6 +52,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<PrivateRoute><HomePage /></PrivateRoute>} />
+          <Route path='/counter' element={<PrivateRoute><CounterPage /></PrivateRoute>} />
           <Route path='/about' element={<PrivateRoute><AboutPage /></PrivateRoute>} />
         </Route>
         <Route path='/login' exact={true} element={<LoginPage />} />
