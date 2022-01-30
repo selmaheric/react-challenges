@@ -42,8 +42,6 @@ export default function authReducer(state = INIT_STATE, action) {
         user: action.user.email,
       }
     default:
-      return {
-        ...state,
-      }
+      return state;
   }
 }

@@ -15,8 +15,6 @@ export default function counterReducer(state = INIT_STATE, action) {
         counter: state.counter - 1
       }
     default:
-      return {
-        ...state,
-      }
+      return state;
   }
 }
