@@ -12,13 +12,11 @@ export default function authReducer(state = INIT_STATE, action) {
         loading: true,
       }
     case 'LOGIN_SUCCESS':
+      localStorage.setItem('token', 'token');
       return {
         ...state,
         loading: false,
-        user: {
-          firstName: 'Selma',
-          lastName: 'Heric'
-        }
+        user: action.user
       }
     case 'LOGIN_ERROR':
       return {
@@ -26,6 +24,7 @@ export default function authReducer(state = INIT_STATE, action) {
         error: 'Error'
       }
     case 'LOGOUT':
+      localStorage.removeItem('token');
       return {
         ...state,
         user: null,

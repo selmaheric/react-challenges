@@ -3,14 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { useFormik, Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
-function loginMock() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve();
-    }, 500)
-  })
-}
-
+import { login } from '../../redux/auth/actions';
  
 const SignupSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
@@ -19,8 +12,6 @@ const SignupSchema = Yup.object().shape({
     .min(3, 'Password is too short - should be 8 chars minimum.')
     .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.')
 });
-
-
 
 export default function LoginPage() {
   const dispatch = useDispatch();
@@ -32,14 +23,7 @@ export default function LoginPage() {
       password: '',
     },
     onSubmit: async values => {
-      dispatch({
-        type: 'LOGIN_REQUEST'
-      });
-      await loginMock();
-      dispatch({
-        type: 'LOGIN_SUCCESS',
-      });
-      localStorage.setItem('token', 'token');
+     dispatch(login(values));
     },
   });
 
@@ -90,8 +74,7 @@ export default function LoginPage() {
           }}
           validationSchema={SignupSchema}
           onSubmit={values => {
-            // same shape as initial values
-            console.log(values);
+            dispatch(login(values));
           }}
         >
           {({ errors, touched }) => (
