@@ -3,7 +3,7 @@ import AboutPage from './AboutPage';
 import HomePage from './HomePage';
 import NotFoundPage from './NotFoundPage';
 import CounterPage from './CounterPage';
-import ContextPage from './ContextPage';
+import CounterContextPage from './CounterContextPage';
 
 export {
   LoginPage,
@@ -11,5 +11,5 @@ export {
   HomePage,
   NotFoundPage,
   CounterPage,
-  ContextPage
+  CounterContextPage
 }

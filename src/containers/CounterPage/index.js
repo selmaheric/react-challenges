@@ -23,8 +23,8 @@ export default function CounterPage() {
     <CounterContext.Provider value={{ counter, countHandler }}>
       <div className='counter'>
         <div className='title'>Counter Page</div>
-        <div className='counterNumber'>This counter is created using context.</div>
-        <div className='counterNumber'>Counter: {counter}</div>
+        <div className='subTitle'>This counter is created using context.</div>
+        <div className='text mb-10'>Counter: {counter}</div>
         <ButtonComponent />
       </div>
     </CounterContext.Provider>

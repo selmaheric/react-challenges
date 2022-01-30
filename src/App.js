@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import './App.scss';
 
-import { AboutPage, ContextPage, CounterPage, HomePage, LoginPage, NotFoundPage } from './containers';
+import { AboutPage, CounterContextPage, CounterPage, HomePage, LoginPage, NotFoundPage } from './containers';
 import { Navbar, Sidebar } from './components';
 import { useEffect } from 'react';
 import { getUser } from './redux/auth/actions';
@@ -53,7 +53,7 @@ function App() {
         <Route path='/' element={<Layout />}>
           <Route index element={<PrivateRoute><HomePage /></PrivateRoute>} />
           <Route path='/counter' element={<PrivateRoute><CounterPage /></PrivateRoute>} />
-          <Route path='/context' element={<PrivateRoute><ContextPage /></PrivateRoute>} />
+          <Route path='/counter-context' element={<PrivateRoute><CounterContextPage /></PrivateRoute>} />
           <Route path='/about' element={<PrivateRoute><AboutPage /></PrivateRoute>} />
         </Route>
         <Route path='/login' exact={true} element={<LoginPage />} />

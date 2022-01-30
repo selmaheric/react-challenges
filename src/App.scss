@@ -9,6 +9,25 @@ html, body {
 .App {
   height: 100%;
   padding: 20px;
+
+  .title {
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  .subTitle {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  .mb-10 {
+    margin-bottom: 10px;
+  }
 }
 
 .layout {
