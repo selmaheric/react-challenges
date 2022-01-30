@@ -1,9 +1,12 @@
 import './App.css';
 
+import { HomePage, AboutPage } from './containers';
+
 function App() {
   return (
     <div className="App">
-      selma
+      <HomePage />
+      <AboutPage />
     </div>
   );
 }
