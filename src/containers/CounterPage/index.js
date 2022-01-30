@@ -1,20 +1,32 @@
-import { useState } from 'react';
+import { useState, createContext, useContext } from 'react';
 import './styles.scss';
 
-function ButtonComponent({ onClick }) {
+const CounterContext = createContext();
+
+function ButtonComponent() {
+  const context = useContext(CounterContext);
+  const { countHandler } = context;
+
   return (
-    <button className='button' onClick={onClick}>Increase</button>
+    <button className='button' onClick={countHandler}>Increase</button>
   )
 }
 
 export default function CounterPage() {
   const [counter, setCounter] = useState(0);
 
+  const countHandler = () => {
+    setCounter(counter + 1);
+  }
+
   return (
-    <div className='counter'>
-      <div className='title'>Counter Page</div>
-      <div className='counterNumber'>Counter: {counter}</div>
-      <ButtonComponent onClick={() => setCounter(counter + 1)}/>
-    </div>
+    <CounterContext.Provider value={{ counter, countHandler }}>
+      <div className='counter'>
+        <div className='title'>Counter Page</div>
+        <div className='counterNumber'>This counter is created using context.</div>
+        <div className='counterNumber'>Counter: {counter}</div>
+        <ButtonComponent />
+      </div>
+    </CounterContext.Provider>
   )
 }
