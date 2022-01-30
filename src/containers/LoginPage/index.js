@@ -17,16 +17,6 @@ export default function LoginPage() {
   const dispatch = useDispatch();
   const { user, loading } = useSelector(state => state.auth);
 
-  const formik = useFormik({
-    initialValues: {
-      email: '',
-      password: '',
-    },
-    onSubmit: async values => {
-     dispatch(login(values));
-    },
-  });
-
   if (user) {
     return <Navigate to='/' />
   }
@@ -41,32 +31,6 @@ export default function LoginPage() {
     }}>
       <div style={{ marginBottom: '20px' }}>Plase sign in!</div>
       <div style={{ display: 'flex', flexDirection: 'row' }}>
-        {/* HTML FORM */}
-        <form onSubmit={formik.handleSubmit} style={{ display: 'flex', flexDirection: 'column', paddingRight: '10px' }}>
-          <label htmlFor="email">Email Address</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            // required
-            onChange={formik.handleChange}
-            value={formik.values.email}
-            style={{ marginBottom: '10px' }}
-          />
-          <label htmlFor="email">Pasword</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            // required
-            onChange={formik.handleChange}
-            value={formik.values.password}
-            style={{ marginBottom: '10px' }}
-          />
-
-          <button type="submit">Sign In</button>
-        </form>
-        {/* FORTMIK */}
         <Formik
           initialValues={{
             email: '',

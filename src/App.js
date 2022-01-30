@@ -2,7 +2,7 @@ import { Routes, Route, Outlet, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 
-import './App.css';
+import './App.scss';
 
 import { AboutPage, HomePage, LoginPage, NotFoundPage } from './containers';
 import { Navbar, Sidebar } from './components';
