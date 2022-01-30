@@ -1,9 +1,11 @@
 import { Routes, Route, Outlet } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import './App.css';
 
 import { AboutPage, HomePage, LoginPage, NotFoundPage } from './containers';
 import { Navbar, Sidebar } from './components';
+import { useEffect } from 'react';
 
 function Layout() {
   return (
@@ -20,6 +22,17 @@ function Layout() {
 }
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      dispatch({
+        type: 'LOGIN_SUCCESS',
+      });
+    }
+  }, [dispatch])
+
   return (
     <div className="App">
       <Routes>

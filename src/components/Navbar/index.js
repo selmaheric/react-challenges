@@ -1,6 +1,18 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 export function Navbar() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    dispatch({
+      type: 'LOGOUT'
+    });
+    navigate('/login');
+  }
+
   return (
     <div style={{
       display: 'flex',
@@ -9,7 +21,12 @@ export function Navbar() {
       backgroundColor: 'whitesmoke'
     }}>
       <Link to='/'>Home</Link>
-      <Link to='/about'>About</Link>
+      <div>
+        <Link to='/about' style={{
+          paddingRight: '10px'
+        }}>About</Link>
+        <button onClick={handleLogout}>Logout</button>
+      </div>
     </div>
   )
 }
