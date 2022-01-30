@@ -1,14 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { useFormik, Formik, Form, Field } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
 import { login } from '../../redux/auth/actions';
- 
+
+import './styles.scss';
+
 const SignupSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
   password: Yup.string()
-    .required('No password provided.') 
+    .required('No password provided.')
     .min(3, 'Password is too short - should be 8 chars minimum.')
     .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.')
 });
@@ -22,15 +24,9 @@ export default function LoginPage() {
   }
 
   return (
-    <div style={{
-      height: '100%',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}>
-      <div style={{ marginBottom: '20px' }}>Plase sign in!</div>
-      <div style={{ display: 'flex', flexDirection: 'row' }}>
+    <div className='login'>
+      <div className='loginText'>Plase sign in!</div>
+      <div className='form'>
         <Formik
           initialValues={{
             email: '',
@@ -42,14 +38,16 @@ export default function LoginPage() {
           }}
         >
           {({ errors, touched }) => (
-            <Form style={{ display: 'flex', flexDirection: 'column', width: '300px' }}>
+            <Form className='formContent'>
               <label htmlFor="email">Email Address</label>
               <Field name="email" type="email" />
-              {errors.email && touched.email ? <div style={{color: 'red', fontSize: '10px'}}>{errors.email}</div> : null}
-              <label htmlFor="password" style={{ marginTop: '10px' }}>Password</label>
+              {errors.email && touched.email ? <div className='error'>{errors.email}</div> : null}
+              
+              <label htmlFor="password" className='label'>Password</label>
               <Field name="password" type="password" />
-              {errors.password && touched.password ? <div style={{color: 'red', fontSize: '10px'}}>{errors.password}</div> : null}
-              <button type="submit" style={{ marginTop: '10px' }}>Submit Formik</button>
+              {errors.password && touched.password ? <div className='error'>{errors.password}</div> : null}
+              
+              <button type="submit" className='label'>Submit Formik</button>
             </Form>
           )}
         </Formik>

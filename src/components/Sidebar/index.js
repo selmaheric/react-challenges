@@ -1,10 +1,12 @@
+import './styles.scss';
+
 export function Sidebar({ children }) {
   return (
-    <div style={{ display: 'flex' }}>
-      <div style={{ flex: 1 }}>
+    <div className='sidebar'>
+      <div className='sidebarContent'>
         sidebar
       </div>
-      <div style={{ flex: 5 }}>
+      <div className='sidebarChildren'>
         {children}
       </div>
     </div>
