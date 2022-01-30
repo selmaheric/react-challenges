@@ -1,13 +1,16 @@
-import { Routes, Route, Link, Outlet } from 'react-router-dom';
+import { Routes, Route, Outlet } from 'react-router-dom';
 
 import './App.css';
 
-import { Navbar, Sidebar } from './components';
 import { AboutPage, HomePage, LoginPage, NotFoundPage } from './containers';
+import { Navbar, Sidebar } from './components';
 
 function Layout() {
   return (
-    <div style={{border: '1px solid whitesmoke', height: '100%'}}>
+    <div style={{
+      border: '1px solid whitesmoke',
+      height: '100%'
+    }}>
       <Navbar />
       <Sidebar>
         <Outlet />
