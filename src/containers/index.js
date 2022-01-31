@@ -5,6 +5,7 @@ import NotFoundPage from './NotFoundPage';
 import CounterPage from './CounterPage';
 import CounterContextPage from './CounterContextPage';
 import CounterReduxPage from './CounterReduxPage';
+import ModalPage from './ModalPage';
 
 export {
   LoginPage,
@@ -13,5 +14,6 @@ export {
   NotFoundPage,
   CounterPage,
   CounterContextPage,
-  CounterReduxPage
+  CounterReduxPage,
+  ModalPage
 }

@@ -10,6 +10,7 @@ export function Sidebar({ children }) {
           <li><Link to='/counter'>Counter State</Link></li>
           <li><Link to='/counter-context'>Counter Context</Link></li>
           <li><Link to='/counter-redux'>Counter Redux</Link></li>
+          <li><Link to='/modal'>Modal Page</Link></li>
         </ul>
       </div>
       <div className='sidebarChildren'>
